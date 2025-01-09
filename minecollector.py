@@ -25,7 +25,8 @@ def makegrid(x, y):
         pass
     return grid
 
-# Function to move X (up left down right) based on user input (WASD)
+# Function to move X (up left down right) based on user input (WASD). In each direction, list is reordered to place "X"
+# in the spot that there was previously a mine or an 'o'
 def move(x):
     user = getch.getch()
     pos = x.index('X')
@@ -38,21 +39,21 @@ def move(x):
     if user == "a":
         grid = x.replace(x[pos], 'o')
         if pos % 52 == 0:
-            grid = grid[:pos + 45] + 'X' + grid[pos + 46:]
+            grid = grid[:pos + 45] + 'X' + grid[pos + 46:] # move left along line
         else:
-            grid = grid[:pos - 5] + 'X' + grid[pos - 4:]
+            grid = grid[:pos - 5] + 'X' + grid[pos - 4:] # wrap to right
     if user == "d":
         grid = x.replace(x[pos], 'o')
-        if pos in list(range(45,2000,52)): # its not intervales of 45 because line length is actually 52...
-            grid = grid[:pos - 45] + 'X' + grid[pos - 44:]
+        if pos in list(range(45,2000,52)): 
+            grid = grid[:pos - 45] + 'X' + grid[pos - 44:] # move right along line
         else:
-            grid = grid[:pos + 5] + 'X' + grid[pos + 6:]
+            grid = grid[:pos + 5] + 'X' + grid[pos + 6:] # wrap to the left edge
     if user == "s":
         grid = x.replace(x[pos],'o')
         if pos in list(range(520,570,5)):
-            grid = grid[:pos - 520] + 'X' + grid[pos - 519:]
+            grid = grid[:pos - 520] + 'X' + grid[pos - 519:] # move down along line
         else:
-            grid = grid[:pos + 52] + 'X' + grid[pos + 53:]
+            grid = grid[:pos + 52] + 'X' + grid[pos + 53:] # wrap to the top edge
     return grid, pos
 
 
