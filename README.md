@@ -1,6 +1,6 @@
 
 # MINE COLLECTOR
-You are a mine collector (X). Navigate the grid and collect mines (*) within the step limit.
+You are a mine collector (X). Navigate the grid and collect mines (*) within the step limit.  
 *Note: This may or may not resemble Minesweeper whatsoever*
 
 ## System Requirements
