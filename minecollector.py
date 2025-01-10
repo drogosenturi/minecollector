@@ -1,6 +1,7 @@
 import random
 import os
 import getch
+import msvcrt
 
 # Function to build the grid. Takes x and y which define the area
 #   Coordinates are produced, X represents cursor
@@ -28,7 +29,10 @@ def makegrid(x, y):
 # Function to move X (up left down right) based on user input (WASD). In each direction, list is reordered to place "X"
 # in the spot that there was previously a mine or an 'o'
 def move(x):
-    user = getch.getch()
+    if os.name == 'posix':
+        user = getch.getch()
+    else:
+        user = msvcrt.getch()
     pos = x.index('X')
     if user == "w":
         grid = x.replace(x[pos],'o')
