@@ -1,7 +1,9 @@
 import random
 import os
-import getch
-import msvcrt
+if os.name == 'posix':
+    import getch
+else:
+    import msvcrt
 
 # Function to build the grid. Takes x and y which define the area
 #   Coordinates are produced, X represents cursor
