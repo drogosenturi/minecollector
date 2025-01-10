@@ -11,7 +11,7 @@ else:
 #   It is then saved to variable grid
 def makegrid(x, y):
     coordinates = []
-    grid= ''
+    grid = ''
     for i in range(0, x):
         for u in range(0,y):
             set = i,u
