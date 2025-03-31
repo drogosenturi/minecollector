@@ -8,9 +8,9 @@ This is a cross-platform Python-based game meant to be played in the system cons
 
 ## Instructions
 Download the minecollector.py file. To load the game, use the following command:
-'''sh
+```sh
 python3 minecollector.py
-'''
+```
 Navigate the grid using WASD and collect the mines * within the step limit. Each input of WASD counts to your steps. The grid wraps if you navigate off of the edge.
 
 # GOOD LUCK!!
